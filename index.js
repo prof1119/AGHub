@@ -89,60 +89,41 @@ var projects = [
 var services = [
   {
     ico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26" height="26"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M3 17.5h4m-2-2v4M7 14h3v3H7z"/></svg>',
-    ttl: "Scalable Backend Systems",
-    dsc: "Architecting high-performance backends using Java (Spring Boot) and Node.js, focused on microservices, event-driven design, and seamless API integration.",
-    tags: ["Java", "Spring Boot", "Kafka", "Microservices"],
+    ttl: "Web Applications",
+    dsc: "Practising responsive interfaces and small applications with HTML, CSS, JavaScript, and Python web frameworks.",
+    tags: ["HTML", "CSS", "JavaScript", "FastAPI", "Flask"]
   },
   {
     ico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26" height="26"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
-    ttl: "Full-Stack Solutions",
-    dsc: "Delivering end-to-end web applications by bridging modern React frontends with robust TypeScript-based backends for a unified user experience.",
-    tags: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    ttl: "Python & Automation",
+    dsc: "Learning to write useful scripts, work with APIs, validate data, and reduce repetitive manual tasks.",
+    tags: ["Python", "APIs", "Automation"]
   },
   {
     ico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26" height="26"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l4 4"/></svg>',
-    ttl: "Process Automation & ETL",
-    dsc: "Automating complex workflows and data pipelines with Python, including web scraping, scheduled tasks, and efficient data processing engines.",
-    tags: ["Python", "Automation", "Selenium", "ETL"],
-  },
-  {
-    ico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26" height="26"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>',
-    ttl: "Strategic Tech Advisory",
-    dsc: "Improving team velocity and code quality through deep-dive architecture audits, performance tuning, and technical mentoring.",
-    tags: ["Code Review", "Optimization", "System Design"],
-  },
+    ttl: "Linux & Networking",
+    dsc: "Building practical experience with the command line, system configuration, network troubleshooting, and defensive security basics.",
+    tags: ["Linux", "Networking", "Git"]
+  }
 ];
 
 var exp = [
   {
-    d: "2023 - Present",
-    r: "Independent Full-Stack Developer",
-    c: "Personal Lab / Freelance",
-    desc: "Building production-ready systems, including a high-throughput fintech-style platform. Implementing Java/Spring Boot microservices and data pipelines for real-world scenarios.",
-    sk: ["Java", "Spring Boot", "Python", "Kafka", "AWS"],
+    d: "Ongoing",
+    r: "Personal Projects",
+    c: "Self-directed practice",
+    desc: "Building and refining small applications to practise backend development, browser interfaces, data storage, and deployment basics.",
+    sk: ["Python", "FastAPI", "Flask", "SQLite", "JavaScript", "Git"]
   },
   {
-    d: "2022 - 2023",
-    r: "Backend & Systems Focus",
-    c: "Open Source & Side Projects",
-    desc: "Developed real-time event systems and Node.js APIs. Focused on building reliable, well-documented tools and deploying them using Docker and Redis.",
-    sk: ["Node.js", "TypeScript", "PostgreSQL", "Redis", "Docker"],
-  },
-  {
-    d: "2021 - 2022",
-    r: "Backend Exploration",
-    c: "Self-Initiated Projects",
-    desc: "Started building SaaS analytics tools with Python and Django. Focused on writing clean, testable code and understanding database optimization.",
-    sk: ["Python", "Django", "MySQL", "Git"],
-  },
-  {
-    d: "2020 - 2021",
-    r: "Computer Science Foundations",
-    c: "Self-Directed Learning",
-    desc: "Dedicated this period to mastering how software works under the hood. Deep-dived into core CS fundamentals, focusing on distributed systems and high-performance algorithms.",
-    sk: ["Data Structures", "Algorithms", "Operating Systems", "Networking"],
-  },
+    d: "Current Learning",
+    r: "Systems & Development Fundamentals",
+    c: "Independent study",
+    desc: "Studying programming fundamentals, Linux, networking, and software troubleshooting. Project descriptions link to the available source code.",
+    sk: ["Linux", "Networking", "Python", "Git"]
+  }
 ];
+
 /* MARQUEE */
 var mqi = [
   "HTML5",
@@ -175,32 +156,13 @@ mqEl.innerHTML = []
 
 /* STACK */
 var skEl = document.getElementById("skGrid");
-skEl.innerHTML = stack
-  .map(function (s, i) {
-    return (
-      '<div class="ski rv" style="--tc:' +
-      s.c +
-      ";transition-delay:" +
-      i * 40 +
-      'ms">' +
-      '<div class="ski-icon">' +
-      s.ic +
-      "</div>" +
-      '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center">' +
-      '<div class="ski-name">' +
-      s.n +
-      "</div>" +
-      (s.b ? '<span class="ski-badge">' + s.b + "</span>" : "") +
-      "</div>" +
-      '<div class="ski-bw"><div class="ski-b" style="--lv:' +
-      s.lv +
-      "%;background:" +
-      s.c +
-      '"></div></div>' +
-      "</div>"
-    );
-  })
-  .join("");
+skEl.innerHTML = stack.map(function (s, i) {
+  return '<div class="ski rv" style="--tc:' + s.c + ';transition-delay:' + i * 40 + 'ms">' +
+    '<div class="ski-icon">' + s.ic + '</div>' +
+    '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center">' +
+    '<div class="ski-name">' + s.n + '</div>' +
+    '</div><div class="ski-badge">Used / exploring</div></div>';
+}).join("");
 
 /* PROJECTS */
 var pjEl = document.getElementById("pjList");
