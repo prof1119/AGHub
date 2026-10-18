@@ -259,7 +259,7 @@ svEl.innerHTML = services
 
 /* Link to live repository activity instead of generating a fake contribution graph. */
 var cg = document.getElementById("cgrid");
-cg.innerHTML = '<p class="ss">For current repository activity and source code, see <a href="https://github.com/prof1119" target="_blank" rel="noopener noreferrer">the GitHub profile</a>.</p>';
+cg.innerHTML = '<p class="ss" style="grid-column:1/-1">For current repository activity and source code, see <a href="https://github.com/prof1119" target="_blank" rel="noopener noreferrer">the GitHub profile</a>.</p>';
 
 var lrEl = document.getElementById("lrRows");
 lrEl.innerHTML = ["Python", "FastAPI", "Flask", "SQLite", "JavaScript", "Java", "Linux", "Git"]
