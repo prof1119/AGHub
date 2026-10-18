@@ -56,62 +56,36 @@ var stack = [
 
 var projects = [
   {
-    n: "SmartBudget",
-    sub: "Personal Finance Tracker",
-    tags: [
-      { l: "Python", c: "ta" },
-      { l: "FastAPI", c: "" },
-    ],
-    col: "#6ee7b7",
-    img: "SmartBudget.PNG",
-    prob: "Most finance apps overwhelm users with features they never use. People wanted one clean place to track income, expenses, and savings goals without a subscription.",
-    sol: "Built a high-performance full-stack application using Python and FastAPI for asynchronous data fetching. Designed a normalized PostgreSQL schema to ensure financial data integrity across transactions and saving goals. The frontend is a lightweight, responsive dashboard built with Vanilla JavaScript and Chart.js, served via Nginx on a Linux VPS",
-    res: "300+ sign-ups in the first month with zero marketing. Average session time of 8 minutes. Users actually engaged with their data.",
-    m: "300+",
-    ml: "Users in month one",
-    github: "https://github.com/prof1119/SmartBudget.git",
-    live: "smartbudget.html",
+    n: "SmartBudget", sub: "Personal Budget Tracker",
+    tags: [{ l: "Python", c: "ta" }, { l: "FastAPI", c: "" }, { l: "SQLite", c: "tb" }],
+    col: "#6ee7b7", img: "SmartBudget.PNG",
+    prob: "Keeping track of income, expenses, and savings can become messy when records are spread across notes and spreadsheets.",
+    sol: "Built a local, single-user budgeting app with a FastAPI backend, SQLite persistence, and a vanilla JavaScript dashboard. It supports transactions, savings goals, CSV export, and database backups.",
+    res: "A personal project focused on practical budgeting features, persistent storage, input validation, and a straightforward local setup.",
+    m: "Local", ml: "Single-user app",
+    github: "https://github.com/prof1119/SmartBudget", live: "smartbudget.html"
   },
   {
-    n: "LinkPulse",
-    sub: "URL Analytics Platform",
-    tags: [
-      { l: "Python", c: "ta" },
-      { l: "FastAPI", c: "" },
-      { l: "Redis", c: "tb" },
-      { l: "Docker", c: "" },
-    ],
-    col: "#818cf8",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    prob: "Marketers sharing links had no visibility into which channels drove clicks, what devices were used, or when traffic peaked. They were flying blind.",
-    sol: "Built a Python/FastAPI shortener that captures click metadata in real-time into Redis, with a cron job aggregating stats into PostgreSQL and a vanilla JS frontend with live chart updates.",
-    res: "Handles 15,000 redirects per day on a single $10 server. P99 redirect latency under 40ms thanks to Redis caching.",
-    m: "40ms",
-    ml: "P99 redirect latency",
-    github: "https://github.com/ahmedghareeb",
-    live: "#",
+    n: "Strict Task Manager", sub: "Arabic Study and Task Planner",
+    tags: [{ l: "Python", c: "ta" }, { l: "Flask", c: "" }, { l: "SQLite", c: "tb" }],
+    col: "#818cf8", img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&q=80",
+    prob: "A study routine needs one place to organize tasks, courses, reminders, and progress.",
+    sol: "A personal Flask application with an Arabic right-to-left interface, SQLite storage, task and course tracking, and optional Telegram reminders.",
+    res: "Personal-use project under active improvement. Review the repository README for setup instructions and current security limitations before deployment.",
+    m: "WIP", ml: "Personal project",
+    github: "https://github.com/prof1119/strict-task-manager", live: ""
   },
   {
-    n: "DevBoard",
-    sub: "Team Task Manager",
-    tags: [
-      { l: "Java", c: "ta" },
-      { l: "Spring Boot", c: "" },
-      { l: "React", c: "tb" },
-      { l: "MySQL", c: "" },
-    ],
-    col: "#f87171",
-    img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&q=80",
-    prob: "Small dev teams bouncing between Trello, Slack, and GitHub needed a single kanban board that ties tasks directly to GitHub issues without paying for enterprise tools.",
-    sol: "Built a Spring Boot REST API with role-based auth (Admin/Member/Viewer), a React drag-and-drop kanban board, and a GitHub webhook integration that auto-updates cards when PRs merge.",
-    res: "Used daily by a 12-person team for 6+ months. Status-update meetings dropped from 3x/week to 1x/week.",
-    m: "-66%",
-    ml: "Fewer status meetings",
-    github: "https://github.com/ahmedghareeb",
-    live: "#",
-  },
+    n: "DevBoard", sub: "Backend Project",
+    tags: [{ l: "Java", c: "ta" }, { l: "Spring Boot", c: "" }, { l: "MySQL", c: "tb" }],
+    col: "#f87171", img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&q=80",
+    prob: "Backend projects benefit from clear API boundaries, authentication, and structured persistence.",
+    sol: "A Spring Boot project exploring backend structure and authentication. Check the repository for implemented features; this portfolio does not claim production usage or measured performance.",
+    res: "Project repository available for code review. No production metrics are claimed here.",
+    m: "Code", ml: "Review the repository",
+    github: "https://github.com/prof1119/DevBoard", live: ""
+  }
 ];
-
 var services = [
   {
     ico: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26" height="26"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M3 17.5h4m-2-2v4M7 14h3v3H7z"/></svg>',
@@ -321,70 +295,15 @@ svEl.innerHTML = services
   })
   .join("");
 
-/* CONTRIB GRID */
+/* Link to live repository activity instead of generating a fake contribution graph. */
 var cg = document.getElementById("cgrid");
-var ch = "";
-for (var i = 0; i < 52 * 7; i++) {
-  var r = Math.random();
-  var l =
-    r > 0.78 ? "l4" : r > 0.58 ? "l3" : r > 0.38 ? "l2" : r > 0.2 ? "l1" : "";
-  var n =
-    l === "l4"
-      ? Math.floor(Math.random() * 8 + 5)
-      : l === "l3"
-        ? Math.floor(Math.random() * 4 + 3)
-        : l === "l2"
-          ? 2
-          : l === "l1"
-            ? 1
-            : 0;
-  ch +=
-    '<div class="cc ' +
-    l +
-    '" title="' +
-    n +
-    " contribution" +
-    (n !== 1 ? "s" : "") +
-    '"></div>';
-}
-cg.innerHTML = ch;
+cg.innerHTML = '<p class="ss">For current repository activity and source code, see <a href="https://github.com/prof1119" target="_blank" rel="noopener noreferrer">the GitHub profile</a>.</p>';
 
-/* LANG BARS */
-var ld = [
-  { n: "Java", p: 34, c: "#E76F00" },
-  { n: "Python", p: 27, c: "#3776AB" },
-  { n: "JavaScript", p: 18, c: "#F7DF1E" },
-  { n: "TypeScript", p: 11, c: "#3178C6" },
-  { n: "Bash / SQL", p: 7, c: "#4EC9B0" },
-  { n: "HTML / CSS", p: 3, c: "#E44D26" },
-];
 var lrEl = document.getElementById("lrRows");
-lrEl.innerHTML = ld
-  .map(function (l) {
-    return (
-      '<div class="lrr"><div class="lrn">' +
-      l.n +
-      '</div><div class="lrbw"><div class="lrb" style="background:' +
-      l.c +
-      '" data-w="' +
-      l.p +
-      '%"></div></div><div class="lrp">' +
-      l.p +
-      "%</div></div>"
-    );
-  })
-  .join("");
-new IntersectionObserver(
-  function (es) {
-    es.forEach(function (e) {
-      if (e.isIntersecting)
-        e.target.querySelectorAll(".lrb").forEach(function (b) {
-          b.style.width = b.dataset.w;
-        });
-    });
-  },
-  { threshold: 0.3 },
-).observe(lrEl);
+lrEl.innerHTML = ["Python", "FastAPI", "Flask", "SQLite", "JavaScript", "Java", "Linux", "Git"]
+  .map(function (name) {
+    return '<div class="lrr"><div class="lrn">' + name + '</div></div>';
+  }).join("");
 
 /* TIMELINE */
 var tlEl = document.getElementById("tlEl");
